@@ -202,7 +202,7 @@ pub async fn set_loop(settings_db: State<'_, SettingsDatabase>, r#loop: bool) ->
 }
 
 #[tauri::command]
-pub async fn set_muted(settings_db: State<'_, SettingsDatabase>, muted: bool) -> Result<(), String> {
+pub async fn set_muted_settings(settings_db: State<'_, SettingsDatabase>, muted: bool) -> Result<(), String> {
     settings_db
         .update_setting("muted", muted)
         .await
@@ -234,7 +234,7 @@ pub async fn set_streaming(settings_db: State<'_, SettingsDatabase>, streaming: 
 }
 
 #[tauri::command]
-pub async fn set_volume(settings_db: State<'_, SettingsDatabase>, volume: f64) -> Result<(), String> {
+pub async fn set_volume_settings(settings_db: State<'_, SettingsDatabase>, volume: f64) -> Result<(), String> {
     let clamped_volume = volume.max(0.0).min(1.0);
     settings_db
         .update_setting("volume", clamped_volume)
