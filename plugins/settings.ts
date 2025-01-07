@@ -51,7 +51,7 @@ export default defineNuxtPlugin((nuxtApp) => {
           return await invoke('set_loop', { loop })
         },
         async setMuted(muted: boolean) {
-          return await invoke('set_muted', { muted })
+          return await invoke("set_muted_settings", { muted });
         },
         async setQueue(queue: Song[]) {
           return await invoke('set_queue', { queue });
@@ -63,7 +63,7 @@ export default defineNuxtPlugin((nuxtApp) => {
           return await invoke('set_streaming', { streaming })
         },
         async setVolume(volume: number) {
-          return await invoke('set_volume', { volume })
+          return await invoke("set_volume_settings", { volume });
         }
       }
     }
